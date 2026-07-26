@@ -89,6 +89,7 @@ img { display: block; max-width: 100%; }
   padding: clamp(56px, 6vw, 94px) clamp(36px, 5vw, 88px) 54px;
   position: relative;
   z-index: 2;
+  container-type: inline-size;
 }
 .hero-topline { display: flex; align-items: center; gap: 20px; color: var(--orange-dark); font-weight: 700; font-size: 14px; }
 .hero-topline span { padding: 10px 18px; border: 1px solid var(--orange); border-radius: 5px; }
@@ -99,7 +100,10 @@ img { display: block; max-width: 100%; }
 }
 .hero h1 {
   margin: 0;
-  font-size: clamp(48px, 5.3vw, 88px);
+  /* Sized against .hero-copy, not the viewport: the copy column is only
+     ~54% of the page, so vw units overflowed the headline onto the photo.
+     8.2cqi keeps the 12-character line inside its own column. */
+  font-size: clamp(34px, 8.2cqi, 88px);
   line-height: 1.22;
   letter-spacing: -0.05em;
   white-space: nowrap;
