@@ -183,22 +183,29 @@ img { display: block; max-width: 100%; }
 .why-now > * { position: relative; z-index: 1; }
 .why-now-layout {
   display: grid;
-  grid-template-columns: 39% 61%;
+  /* fr keeps columns + gap at exactly 100%; minmax(0,…) stops long
+     headings from pushing the column wider than its track. */
+  grid-template-columns: minmax(0, 39fr) minmax(0, 61fr);
   gap: 9%;
   align-items: start;
 }
 .why-now-heading {
   position: sticky;
   top: 120px;
+  container-type: inline-size;
 }
 .why-now h2 {
   margin: 0;
-  font-size: clamp(38px, 4vw, 59px);
+  /* Sized against the heading column, not the viewport, so the longest
+     line ("マネージャー" = 6 chars) always fits inside its own track. */
+  font-size: clamp(32px, 15cqi, 56px);
   line-height: 1.48;
 }
 .why-now h2 em,
 .why-now-conclusion h3 em { color: #ff8750; font-style: normal; }
-.why-now h2 em { white-space: nowrap; }
+/* Wrap between words, never mid-word. */
+.why-now h2 em span,
+.why-now-tail { white-space: nowrap; }
 .why-now-heading > p {
   margin: 32px 0 0;
   max-width: 480px;
@@ -455,7 +462,6 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
   .audience { gap: 45px; }
   .why-now-conclusion { gap: 24px; }
   .why-now h2 { font-size: 34px; }
-  .why-now h2 em { white-space: normal; }
   .why-now h2 em span { display: block; white-space: nowrap; }
   .why-now-tail { display: block; }
   .why-now-flow { margin-top: 45px; padding-left: 0; }
