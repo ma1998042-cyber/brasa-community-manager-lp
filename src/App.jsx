@@ -156,7 +156,7 @@ export function App() {
           <div className="hero-copy">
             <div className="hero-topline"><span>3ヶ月・実践型オンライン講座</span><i /></div>
             <p className="course-name">コミュニティマネージャー養成講座</p>
-            <h1>場を、<em>灼</em>し続ける人に。</h1>
+            <h1>場の<em>熱</em>を、絶やさない人に。</h1>
             <h2>資格より、<strong>現場</strong>で動けること。</h2>
             <p className="hero-lead">実際のコミュニティ運営とAI活用を通して、<br />続く場を支える実務を学びます。</p>
             <div className="hero-usps">
