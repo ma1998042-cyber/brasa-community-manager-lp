@@ -412,6 +412,9 @@ footer { background: #171a19; color: white; padding: 70px 5vw 30px; display: gri
 footer > p { color: rgba(255,255,255,.55); font-size: 12px; }
 footer > div { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; font-size: 12px; }
 footer > div a:hover { color: #ff9867; }
+footer > .footer-operator { margin-top: 6px; }
+footer > .footer-operator a { color: rgba(255,255,255,.8); text-decoration: underline; text-underline-offset: 3px; }
+footer > .footer-operator a:hover { color: #ff9867; }
 footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
 
 @media (max-width: 1020px) {

@@ -436,6 +436,7 @@ export function App() {
         <a className="brand footer-brand" href="#top"><Fire weight="fill" /><span className="brand-name">Brasa</span><span className="brand-ja">ブラーサ</span></a>
         <p>コミュニティマネージャー養成講座</p>
         <div><a href="#about">講座について</a><a href="#features">選ばれる理由</a><a href="#curriculum">カリキュラム</a><a href="#price">料金</a><a href="#entry">無料説明会</a></div>
+        <p className="footer-operator">運営：<a href="https://noxtech.biz/" target="_blank" rel="noreferrer">株式会社AI Docks</a></p>
         <small>© 2026 AI Docks Inc.</small>
       </footer>
     </div>
