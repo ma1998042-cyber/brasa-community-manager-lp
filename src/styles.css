@@ -427,11 +427,19 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
   .hero-visual::before { background: linear-gradient(0deg, var(--ivory) 0, transparent 18%); }
   .hero h1 { white-space: normal; }
   .intro-grid, .audience, .why-now-conclusion, .authority, .faq, .entry { grid-template-columns: 1fr; }
+  /* 1 カラムに畳んだグリッドは % の gap を px に置き換える。Chrome は高さを
+     確定してから % の row-gap を解決するため、% のままだと最後の子が親から
+     はみ出し、次のブロックに潜り込む（why-now の④が隠れていた原因）。 */
   .intro-grid { gap: 50px; }
+  .audience { gap: 55px; }
+  .why-now-conclusion { gap: 30px; }
+  .authority { gap: 55px; }
+  .entry { gap: 55px; }
   .ember-card { margin: 0 auto; width: min(90%, 380px); }
   .intro-copy { padding-left: 0; }
   .outcome-grid { grid-template-columns: 1fr 1fr; }
-  .why-now-layout { grid-template-columns: 1fr; }
+  /* gap: 0 — 見出しと流れの間隔は .why-now-flow の margin-top が持つ。 */
+  .why-now-layout { grid-template-columns: 1fr; gap: 0; }
   .why-now-heading { position: static; }
   .why-now-flow { margin-top: 60px; }
   .field { grid-template-columns: 1fr; }
@@ -464,13 +472,24 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
   .proof-row small { display: none; }
   .hero-copy > .cta-button { padding-inline: 25px; font-size: 17px; }
   .section { padding: 82px 20px; }
-  .section-heading h2 { font-size: 34px; }
+  /* SPの見出しは最大 2 行。フォントサイズを「横幅 ÷ 1 行に入れたい字数」で決めることで、
+     320px〜640px のどの幅でも行数が増えない。分母 = (字数 + 余白) × 字送り（字間 -.03em）。 */
+  .section-heading h2 { font-size: min(34px, calc((100vw - 40px) / 10.1)); }
+  /* <br> を消して 24 字を 12 字 × 2 行で回す。改行を残すと 18 字の行が 3 行目を作る。 */
+  .intro .section-heading h2 { font-size: min(34px, calc((100vw - 40px) / 13)); }
+  .intro .section-heading h2 br { display: none; }
+  .problems .section-heading h2 { font-size: min(34px, calc((100vw - 40px) / 13)); }
+  .benefits .section-heading h2 { font-size: min(34px, calc((100vw - 40px) / 12.6)); }
+  .authority h2 { font-size: min(36px, calc((100vw - 40px) / 11.4)); }
+  .entry h2 { font-size: min(38px, calc((100vw - 40px) / 10.4)); }
   .intro-grid { margin-top: 45px; }
   .audience { gap: 45px; }
   .why-now-conclusion { gap: 24px; }
-  .why-now h2 { font-size: 34px; }
-  .why-now h2 em span { display: block; white-space: nowrap; }
-  .why-now-tail { display: block; }
+  /* 「なぜ今、コミュニティ / マネージャーなのか。」の 10 字 × 2 行。
+     span の nowrap が単語の途中での折り返しを防ぐので、block にせず自然に回せる。 */
+  .why-now h2 { font-size: min(34px, calc((100vw - 40px) / 10.4)); }
+  .why-now h2 br { display: none; }
+  .why-now h2 em span, .why-now-tail { display: inline; }
   .why-now-flow { margin-top: 45px; padding-left: 0; }
   .why-now-flow::before { left: 29px; }
   .why-now-flow article { min-height: 0; grid-template-columns: 58px 1fr; gap: 18px; padding: 28px 0; }
@@ -478,6 +497,9 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
   .why-now-marker > span { font-size: 24px; }
   .why-now-icon { width: 48px; height: 48px; }
   .why-now-conclusion { margin-top: 28px; padding: 32px 24px; }
+  /* 内側 padding 24px を差し引いた幅で 12 字 / 行。既定の 27px だと 1 行目が
+     はみ出し、末尾の「る。」だけが 3 行目に落ちていた。 */
+  .why-now-conclusion h3 { font-size: min(27px, calc((100vw - 88px) / 12.4)); }
   .outcome-grid { grid-template-columns: 1fr; margin-top: 45px; }
   .outcome-grid article { min-height: 0; }
   .field-image { height: 520px; }
@@ -750,6 +772,8 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
   .fit-section,
   .representative,
   .problems-layout { grid-template-columns: 1fr; }
+  .problems-layout { gap: 42px; }
+  .representative { gap: 65px; }
   .problem-owner { min-height: 560px; }
   .reason-feature:nth-child(even) .reason-feature-image,
   .reason-feature:nth-child(even) .reason-feature-copy,
@@ -767,6 +791,8 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
   .problem-grid article { grid-template-columns: 46px 1fr; gap: 12px; padding: 20px 0; }
   .solution-image { min-height: 420px; }
   .solution-copy { padding: 75px 20px; }
+  .solution-copy h2 { font-size: min(36px, calc((100vw - 40px) / 9.4)); }
+  .representative h2 { font-size: min(36px, calc((100vw - 40px) / 11.4)); }
   .reason-features { margin-top: 50px; gap: 42px; }
   .reason-feature { min-height: 0; }
   .reason-feature-image img { min-height: 0; aspect-ratio: 4 / 3; }
