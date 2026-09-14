@@ -665,6 +665,7 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
 .curriculum-table thead th { padding-block: 18px; background: rgba(255,255,255,.06); color: #ffc08d; font-size: 11px; letter-spacing: .12em; }
 .curriculum-table tbody > tr > th { width: 120px; color: white; }
 .curriculum-table tbody > tr > th span { display: inline-block; color: var(--orange); font: 800 23px/1.4 "Noto Serif JP", serif; }
+.curriculum-table tbody > tr > th span small { display: block; font-size: 15px; white-space: nowrap; }
 .curriculum-table h3 { margin: 0 0 10px; font: 700 25px/1.4 "Noto Serif JP", serif; }
 .curriculum-table p { margin: 0; color: rgba(255,255,255,.62); line-height: 1.9; font-size: 13px; }
 .curriculum-table ul { margin: 0; }

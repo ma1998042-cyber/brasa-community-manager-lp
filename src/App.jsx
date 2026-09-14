@@ -80,28 +80,28 @@ const reasons = [
     image: "/images/reason-05-after-graduation.jpg",
     label: "AFTER GRADUATION",
     title: "卒業後も、実践につながる",
-    text: "3ヶ月で終わる資格講座ではありません。運営ポートフォリオを仕上げ、適性のある方には支援コミュニティでの実践機会をご案内。学んだことを現場で試し、支えるキャリアへつなげるところまで伴走します。",
+    text: "6ヶ月で終わる資格講座ではありません。運営ポートフォリオを仕上げ、適性のある方には支援コミュニティでの実践機会をご案内。学んだことを現場で試し、支えるキャリアへつなげるところまで伴走します。",
     points: ["運営ポートフォリオを制作", "適性に応じた実践機会の案内", "卒業後もつながる運営者ネットワーク"],
   },
 ];
 
 const curriculum = [
   {
-    month: "1ヶ月目",
+    month: "1〜2ヶ月目",
     theme: "土台をつくる",
     purpose: "場の目的と運営者の役割を理解し、続くコミュニティの設計図をつくる。",
     lessons: ["コミュニティの本質と「文脈」の捉え方", "続く場・止まる場の運営診断", "オーナー／参加者／運営者の役割整理", "AIを使ったリサーチと運営準備"],
     output: "コミュニティ運営設計シート",
   },
   {
-    month: "2ヶ月目",
+    month: "3〜4ヶ月目",
     theme: "現場で動かす",
     purpose: "投稿・イベント・声かけを実践し、参加者の反応から改善できるようになる。",
     lessons: ["1ヶ月分の投稿・企画カレンダー作成", "参加したくなるオンラインイベント設計", "初参加者へのオンボーディングと声かけ", "インタビュー／アンケート設計とAI分析"],
     output: "実践運営プラン＋投稿・イベント案",
   },
   {
-    month: "3ヶ月目",
+    month: "5〜6ヶ月目",
     theme: "任される人になる",
     purpose: "実践結果を数字と言葉で伝え、オーナーに次の一手を提案できる状態を目指す。",
     lessons: ["運営データ・継続率・参加率の見方", "イベントレポートと改善提案", "実際のコミュニティを想定した運営演習", "案件の進め方・見積り・卒業後のキャリア"],
@@ -154,7 +154,7 @@ export function App() {
       <main>
         <section className="hero" id="top">
           <div className="hero-copy">
-            <div className="hero-topline"><span>3ヶ月・実践型オンライン講座</span><i /></div>
+            <div className="hero-topline"><span>6ヶ月・実践型オンライン講座</span><i /></div>
             <p className="course-name">コミュニティマネージャー養成講座</p>
             <h1>場の<em>熱</em>を、絶やさない人に。</h1>
             <h2>資格より、<strong>現場</strong>で動けること。</h2>
@@ -162,7 +162,7 @@ export function App() {
             <div className="hero-usps">
               <div><UsersThree /><span>実際の現場で実践</span></div>
               <div><TrendUp /><span>投稿・分析を<br />AIで効率化</span></div>
-              <div><CalendarCheck /><span>未経験から3ヶ月</span></div>
+              <div><CalendarCheck /><span>未経験から6ヶ月</span></div>
             </div>
             <div className="proof-row">
               <span><b>150</b>名以上<small>の運営</small></span>
@@ -229,9 +229,9 @@ export function App() {
 
         <section className="outcomes section">
           <div className="section-heading centered">
-            <span className="eyebrow">IDEAL FUTURE / AFTER 3 MONTHS</span>
+            <span className="eyebrow">IDEAL FUTURE / AFTER 6 MONTHS</span>
             <h2>知っている、から。<br /><em>現場で動ける</em>へ。</h2>
-            <p className="section-lead">3ヶ月後、場の状態を見て、自分で考え、次の一手を動かせる状態を目指します。</p>
+            <p className="section-lead">6ヶ月後、場の状態を見て、自分で考え、次の一手を動かせる状態を目指します。</p>
           </div>
           <div className="outcome-grid">
             {outcomes.map((item) => (
@@ -275,7 +275,7 @@ export function App() {
             <span className="eyebrow">THE SOLUTION</span>
             <h2>必要なのは、<br /><em>場を支える専門職。</em></h2>
             <p>コミュニティマネージャーは、ただ投稿する人でも、イベントを仕切る人でもありません。オーナーの想いと参加者の声をつなぎ、関わりが続く文脈を設計する人です。</p>
-            <p>ブラーサでは、知識・AI・現場実践を一つにして、その役割を3ヶ月で身につけます。</p>
+            <p>ブラーサでは、知識・AI・現場実践を一つにして、その役割を6ヶ月で身につけます。</p>
           </div>
         </section>
 
@@ -302,7 +302,7 @@ export function App() {
         <section className="curriculum section" id="curriculum">
           <div className="section-heading centered">
             <span className="eyebrow light">CURRICULUM</span>
-            <h2>3ヶ月で、<br />任される人になる。</h2>
+            <h2>6ヶ月で、<br />任される人になる。</h2>
             <p className="section-lead light-copy">毎月「理解する → 手を動かす → 反応を見る → 改善する」を繰り返します。</p>
           </div>
           <div className="curriculum-table-wrap">
@@ -311,7 +311,7 @@ export function App() {
               <tbody>
                 {curriculum.map((item) => (
                   <tr key={item.month}>
-                    <th><span>{item.month}</span></th>
+                    <th><span>{item.month.replace("ヶ月目", "")}<small>ヶ月目</small></span></th>
                     <td><h3>{item.theme}</h3><p>{item.purpose}</p></td>
                     <td><ul>{item.lessons.map((lesson) => <li key={lesson}><Check weight="bold" />{lesson}</li>)}</ul></td>
                     <td><strong>{item.output}</strong></td>
@@ -360,8 +360,8 @@ export function App() {
 
         <section className="price section" id="price">
           <div className="price-card">
-            <div className="price-head"><span>3ヶ月 実践型プログラム</span><h2>受講料金</h2></div>
-            <div className="price-value"><span>税込</span><strong>298,000</strong><b>円</b></div>
+            <div className="price-head"><span>6ヶ月 実践型プログラム</span><h2>受講料金</h2></div>
+            <div className="price-value"><span>税込</span><strong>398,000</strong><b>円</b></div>
             <div className="price-includes">
               <span><Check weight="bold" />全カリキュラム</span><span><Check weight="bold" />現場での実践演習</span>
               <span><Check weight="bold" />AI活用ワーク</span><span><Check weight="bold" />卒業後の機会案内</span>
