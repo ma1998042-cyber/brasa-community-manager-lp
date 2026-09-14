@@ -651,6 +651,7 @@ footer > small { margin-top: 35px; color: rgba(255,255,255,.35); }
 .reason-kicker b { color: var(--orange); font: 800 44px/1 "Noto Serif JP", serif; }
 .reason-kicker span { font-size: 11px; letter-spacing: .18em; color: var(--teal); font-weight: 800; }
 .reason-feature h3 { margin: 24px 0 22px; font: 700 clamp(28px, 2.7vw, 40px)/1.5 "Noto Serif JP", serif; }
+.reason-feature h3.keep-phrases { word-break: keep-all; overflow-wrap: anywhere; }
 .reason-feature-copy > p { color: var(--ink-soft); line-height: 2; }
 .reason-feature ul,
 .curriculum-table ul { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 11px; }

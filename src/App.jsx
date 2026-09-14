@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   ArrowRight,
   CalendarCheck,
@@ -71,7 +71,9 @@ const reasons = [
     number: "04",
     image: "/images/reason-04-owner-mentoring.jpg",
     label: "OWNER MENTORING",
-    title: "現役オーナーが、直接フィードバック",
+    title: "現役コミュニティオーナーが、直接フィードバック",
+    // 長い見出しは語の途中で折り返さないよう、ここでだけ改行してよい位置を決める。
+    titleBreaks: ["現役", "コミュニティ", "オーナーが、", "直接フィードバック"],
     text: "教えるのは、今もコミュニティを運営し、日々の迷いや変化に向き合っている現役オーナーです。教科書の正解ではなく、その場の目的と参加者に合わせて判断する視点を、具体的な添削と対話でお渡しします。",
     points: ["現場視点の個別フィードバック", "オーナーの意図を汲む練習", "失敗事例も含めた実務知"],
   },
@@ -290,7 +292,11 @@ export function App() {
                 <div className="reason-feature-image"><img src={item.image} alt={`${item.title}を表す実践風景`} /></div>
                 <div className="reason-feature-copy">
                   <div className="reason-kicker"><b>{item.number}</b><span>{item.label}</span></div>
-                  <h3>{item.title}</h3>
+                  <h3 className={item.titleBreaks ? "keep-phrases" : undefined}>
+                    {item.titleBreaks
+                      ? item.titleBreaks.map((part, i) => <Fragment key={part}>{i > 0 && <wbr />}{part}</Fragment>)
+                      : item.title}
+                  </h3>
                   <p>{item.text}</p>
                   <ul>{item.points.map((point) => <li key={point}><Check weight="bold" />{point}</li>)}</ul>
                 </div>
